@@ -1,8 +1,42 @@
-<html>
-    <head></head>
-    <link rel="script" href="index.php">
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Payment</title>
+</head>
+<body>
 
+<form id="payment-form">
+    <label for="authkey">Authorization Key:</label>
+    <input type="text" id="authkey" name="authkey" required>
+
+    <button type="button" onclick="submitPayment()">Submit Payment</button>
+</form>
+
+<script>
+    function submitPayment() {
+        var authkey = document.getElementById("authkey").value;
+
+        // Perform AJAX request to the server
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "your_php_file.php", true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var response = JSON.parse(xhr.responseText);
+                console.log(response); // You can handle the response accordingly
+            }
+        };
+
+        // Prepare the data to be sent in the POST request
+        var data = "authkey=" + authkey;
+
+        // Send the request
+        xhr.send(data);
+    }
+</script>
 
 </body>
 </html>
