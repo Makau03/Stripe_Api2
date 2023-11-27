@@ -1,3 +1,6 @@
+<html>
+    <head></head>
+    <body>
 <?php
 require 'vendor/autoload.php';
 if (1){
@@ -42,3 +45,5 @@ echo json_encode(
 );
 http_response_code(200);
 } echo "Not authorised";
+</body>
+</html>
