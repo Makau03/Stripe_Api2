@@ -3,7 +3,7 @@
     <body>
 <?php
 require 'vendor/autoload.php';
-if (1){
+if (isset($_POST['authkey']) && ($_POST['authkey']== 'abc')){
 $stripe = new \Stripe\StripeClient('sk_test_51OFWvTLb2fG7dWSAVKtkUIw6CcEsctUy9g3AJzMkleJJDqIH4tqGu2xtDp5QnS10eHHl0mAgG0Dar87Qdmk7jhxF00gV2THkjt');
 
 
